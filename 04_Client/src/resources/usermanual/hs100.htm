@@ -1,0 +1,34 @@
+<HTML><HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=windows-1252">
+	<TITLE>Rules Based (Pull Spike) Agent</TITLE>
+	<META NAME="KEYWORDS" CONTENT="agent;pull;rules based;">
+	<META NAME="AUTHOR" CONTENT="Francois Nadeau and Marty Boogaart">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 7.5.2">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<P><FONT FACE="Verdana, helvetica, sans-serif" COLOR="#000080" SIZE="3">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+ - <A HREF="hs90.htm">Previous</A>
+ - <A HREF="hs110.htm">Next</A>
+</FONT><HR></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#800000" SIZE="5"><B><IMG SRC="sccoriAgentLogo_Help.png" WIDTH="190" HEIGHT="42" BORDER="0"></FONT><FONT FACE="Verdana" COLOR="#0000FF" SIZE="5">Rules Based (Pull Spike) Agent</B></FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">This is a "seeing" agent that knows all of the other players stocking levels. It should only be used in </FONT><A HREF="hs110.htm"><FONT FACE="Verdana" SIZE="3">Pull simulations</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3">.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">Rules Based (Pull Spike) agent uses the same rules as the Rules Base (Pull Random) agent <B>after</B> the spike, but it does its best to maximize stock before the spike. It does its best to maintain "adequate" stocking levels. This agent tries to minimize shipping costs after the spike and it avoids back logging its supplier - as long as the supplier is attempting to maintain adequate stocks itself.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The Rules Based (Pull Spike) Agent uses the following parameters:</FONT></P>
+<UL STYLE="margin-top:0;margin-bottom:0;margin-left=18pt;"><LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">maximum inventory depends on the position played and pre/post spike</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">before spike, all positions = 100</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">retailer = 100</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">wholesaler = 80</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">distributor = 80</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">manufacturer = 65 (higher previous stocking levels allow lower levels here)</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">restocking trigger level = 40 (ignored before the spike)</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">container size = 60</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">minimum order = 30 (order half a container or more)</FONT></UL>
+<P STYLE="margin-top:0;margin-bottom:0;margin-left=1pt;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">This help document provides a qualitative </FONT><A HREF="hs130.htm"><FONT FACE="Verdana" SIZE="3">comparison</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> of the agents' performance.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;">
+</P>
+</BODY></HTML>

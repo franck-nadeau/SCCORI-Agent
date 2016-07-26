@@ -1,0 +1,110 @@
+<project name="SCCORI Agent" default="compile" basedir=".">
+
+  <property name="app.name"      value="sccoriAgent"/>
+  <property name="app.path"      value="/${app.name}"/>
+  <property name="app.version"   value="1.0"/>
+  <property name="build.home"    value="${basedir}/build"/>
+  <property name="doc.home"      value="${basedir}/doc"/>		
+  <property name="build.classes" value="${build.home}"/>	
+  <property name="lib"    	     value="${basedir}/lib"/>
+  <property name="src.java"      value="${basedir}/src/java"/>
+  <property name="src.resources" value="${basedir}/src/resources"/>
+  <property name="jar.file"      value="${app.name}.jar"/>		
+  
+  <path id="compile.classpath">
+    <fileset dir="${lib}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+	
+  <path id="run.classpath">
+    <fileset dir="${lib}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <pathelement location="${jar.file}"/>
+  </path>
+  
+  <target name="init">
+    <mkdir  dir="${build.home}"/>
+  </target>  
+  
+  <target name="all" depends="clean,compile" 
+  	description="Clean build and dist directories, then compile"/>
+
+  <target name="clean" 
+  	description="Delete old build and dist directories">
+    <delete dir="${build.home}"/>
+    <delete file="${jar.file}"/>
+  </target>
+
+  <target name="resources" depends="init" description="Copy properties files.">
+    <!-- Copy application resources -->
+    <copy  todir="${build.home}">
+      <fileset dir="${src.java}" excludes="**/*.java"/>
+    </copy>
+  </target>
+  
+  <target name="compile" depends="init,resources"
+			description="Compile Java sources">
+    <!-- Compile Java classes as necessary -->
+    <javac srcdir="${src.java}" debug="true" 
+          destdir="${build.home}">
+        <classpath refid="compile.classpath"/>
+    </javac>
+  </target>
+	
+  <target name="jar" depends="compile" description="jar it up">
+  	<jar jarfile="${jar.file}" basedir="${build.classes}"/>
+  </target>
+	
+  <target name="doc" depends="compile"
+          description="Create component Javadoc documentation">
+    <mkdir dir="${doc.home}"/>
+    <javadoc sourcepath   ="${src.java}"
+             destdir      ="${doc.home}"
+             packagenames ="ca.athabascau.sccori.*"
+             author       ="true"
+             protected    ="true"
+             version      ="true"
+             doctitle     ="&lt;h1&gt;${app.name}}&lt;/h1&gt;"
+             windowtitle  ="${app.name} (Version ${app.version})"
+             bottom       ="Copyright (c) 2006 - Francois Nadeau and Marty Boogaart"
+    >
+      <classpath refid="compile.classpath"/>
+      <link href="http://java.sun.com/products/jdk/1.2/docs/api/"/>
+    </javadoc>
+  </target>		
+	
+  <target name="run.Client" depends="jar" description="Run the Client">
+    <java fork="true" classname="ca.athabascau.sccori.comm.TestClient" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.Simulation" depends="jar" description="Run the Simulation with 4 bots component">
+    <java fork="true" classname="ca.athabascau.sccori.comm.Simulation" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.ParanoidAgent" depends="jar" description="Run the Simulation with 4 Paranoid agents component">
+    <java fork="true" classname="ca.athabascau.sccori.agent.ParanoidAgent" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.ConsiderateParanoidAgent" depends="jar" description="Run the Simulation with 4 Considerate Paranoid agents">
+    <java fork="true" classname="ca.athabascau.sccori.agent.ConsiderateParanoidAgent" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.RulesBasedAgent" depends="jar" description="Run the Simulation with 4 Rules Based agents">
+    <java fork="true" classname="ca.athabascau.sccori.agent.RulesBasedAgent" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.RB_PullRandomAgent" depends="jar" description="Run the Simulation with 4 Rules Based agents optimized for random runs.">
+    <java fork="true" classname="ca.athabascau.sccori.agent.RB_PullRandomAgent" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.RB_PullSpikeAgent" depends="jar" description="Run the Simulation with 4 RB_Spike agents optimized for spiked runs.">
+    <java fork="true" classname="ca.athabascau.sccori.agent.RB_PullSpikeAgent" classpathref="run.classpath"/>
+  </target>	
+
+  <target name="run.RB_PushAgent" depends="jar" description="Run the Simulation with 4 Rules Based agents optimized for PUSH mode.">
+    <java fork="true" classname="ca.athabascau.sccori.agent.RB_PushAgent" classpathref="run.classpath"/>
+  </target>	
+
+</project>

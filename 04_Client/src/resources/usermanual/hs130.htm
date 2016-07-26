@@ -1,0 +1,42 @@
+<HTML><HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=windows-1252">
+	<TITLE>Agent Comparisons</TITLE>
+	<META NAME="KEYWORDS" CONTENT="comparison;ratings;">
+	<META NAME="AUTHOR" CONTENT="Francois Nadeau and Marty Boogaart">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 7.5.2">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<P><FONT FACE="Verdana, helvetica, sans-serif" COLOR="#000080" SIZE="3">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+ - <A HREF="hs120.htm">Previous</A>
+</FONT><HR></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#800000" SIZE="5"><B><IMG SRC="sccoriAgentLogo_Help.png" WIDTH="190" HEIGHT="42" BORDER="0"></FONT><FONT FACE="Verdana" COLOR="#0000FF" SIZE="5">Agent Comparisons</B></FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">There are currently six intelligent agents.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">Click on the links below for a detailed explanation of each.</FONT></P>
+<UL STYLE="margin-top:0;margin-bottom:0;margin-left=10pt;"><LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs50.htm">Paranoid Agent</FONT></A>
+<LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs60.htm">Considerate Paranoid Agent</FONT></A>
+<LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs70.htm">Rules Based (Push) Agent</FONT></A>
+<LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs80.htm">Rules Based (Generic) Agent</FONT></A>
+<LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs90.htm">Rules Based (Pull Random) Agent</FONT></A>
+<LI><FONT FACE="Verdana" SIZE="3"><A HREF="hs100.htm">Rules Based (Pull Spike) Agent</FONT></A></UL>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3"><B><U>The agent performances are ranked in three tables below:</U></B></FONT></P>
+<UL STYLE="margin-top:0;margin-bottom:0;margin-left=10pt;"><LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">A higher rank number indicates better performance.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The first table ranks the agents according to their performance in the random-run simulations.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The second table ranks them according to their performance in the spiked-run simulations.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The third table combines the rank numbers of the previous two tables to identify the best overall performers.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The performance parameter is the average unit cost. All costs are measured at cycle thirty.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">In the combined rankings table, the ties are decided by giving the agent with the minimum spread between its performances the higher ranking.</FONT></UL>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#800000" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#800000" SIZE="3"><IMG SRC="Rankings.png" WIDTH="683" HEIGHT="253" BORDER="0"></FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3"><B><I><U>Discussion</U></I></B></FONT></P>
+<UL STYLE="margin-top:0;margin-bottom:0;margin-left=10pt;"><LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The RulesBased agent is the best overall agent because it ranks in second place on both types of runs. Also RB_PullRandom beats RulesBased by only a narrow margin in the Random Runs, while RulesBased beats RB_Random by a wider margin in the Spiked Runs.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">Although ConsiderateParanoid is a simpler agent than the RB_Push agent, it outperforms it because it operates in Pull mode which enables it to prevent propagating Spike backlogs down the line.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">For Spiked Runs, RB_PullSpike outperforms all the rest by a wide margin; but, this is at a great price, because even the "blind" RB_Push agent outperforms it on Random runs.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">Comparing the two "blind" agents (RB_Push and Paranoid) performances on the Spiked run, even the simple Paranoid agent outperforms the RB_Push agent. The reason is that the Paranoid agent's raison d'etre is to prepare for spikes, and when a spike comes, Paranoid is as ready as it can possibly be. To its credit, on Random runs, RB_Push can deliver product for less than 2/3 of Paranoid's cost.</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">If you must choose just one agent on Pull simulations, then choose the RulesBased agent.
+</FONT>
+</UL>
+</BODY></HTML>

@@ -1,0 +1,60 @@
+<project name="name of project" default="compile" basedir=".">
+
+  <property name="app.name"      value="website"/>
+  <property name="app.path"      value="/${app.name}"/>
+  <property name="app.version"   value="1.0"/>
+  <property name="build.home"    value="${basedir}/build"/>
+  <property name="lib"    	 value="${basedir}/lib"/>
+  <property name="src.java"      value="${basedir}/src/java"/>
+  <property name="src.resources" value="${basedir}/src/resources"/>
+  <property name="jboss.deploy"  value="/usr/java/jboss-4.0.0RC1/server/default/deploy"/>
+  
+  <path id="compile.classpath">
+    <fileset dir="${lib}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>  
+  
+  <target name="init">
+    <mkdir  dir="${build.home}"/>
+    <mkdir  dir="${build.home}/WEB-INF"/>
+    <mkdir  dir="${build.home}/WEB-INF/classes"/>
+    <mkdir dir="${build.home}/WEB-INF/lib"/>
+  </target>  
+  
+  <target name="all" depends="clean,compile" 
+  	description="Clean build and dist directories, then compile"/>
+
+  <target name="clean" 
+  	description="Delete old build and dist directories">
+    <delete dir="${build.home}"/>
+  </target>
+
+  <target name="resources" depends="init"
+   	description="Copy Html docs and stuff.">
+      <!-- Copy application resources -->
+    <copy  todir="${build.home}">
+      <fileset dir="${src.resources}"/>
+    </copy>    
+  </target>
+  
+  <target name="compile" depends="init,resources"
+   	description="Compile Java sources">
+    <!-- Compile Java classes as necessary -->
+    <mkdir dir="${build.home}/WEB-INF/classes"/>
+    <javac srcdir="${src.java}"
+          destdir="${build.home}/WEB-INF/classes">
+        <classpath refid="compile.classpath"/>
+    </javac>
+    <!-- Copy application resources -->
+    <copy  todir="${build.home}/WEB-INF/classes">
+      <fileset dir="${src.java}" excludes="**/*.java"/>
+    </copy>
+  </target>
+  
+  <target name="deploy" depends="compile"
+   	description="Deploy">
+     <jar jarfile="${jboss.deploy}/${app.name}.war"
+         basedir="${build.home}"/>  
+  </target>
+</project>

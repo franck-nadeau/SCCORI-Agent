@@ -1,0 +1,35 @@
+<HTML><HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=windows-1252">
+	<TITLE>Rules Based (Push) Agent</TITLE>
+	<META NAME="KEYWORDS" CONTENT="agent;push;rules based;">
+	<META NAME="AUTHOR" CONTENT="Francois Nadeau and Marty Boogaart">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 7.5.2">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<P><FONT FACE="Verdana, helvetica, sans-serif" COLOR="#000080" SIZE="3">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+ - <A HREF="hs60.htm">Previous</A>
+ - <A HREF="hs80.htm">Next</A>
+</FONT><HR></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#800000" SIZE="5"><B><IMG SRC="sccoriAgentLogo_Help.png" WIDTH="190" HEIGHT="42" BORDER="0"></FONT><FONT FACE="Verdana" COLOR="#0000FF" SIZE="5">Rules Based (Push) Agent</B></FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">This is a "blind" agent that only knows its own stocking levels. It will function in both </FONT><A HREF="hs110.htm"><FONT FACE="Verdana" SIZE="3">Push and Pull simulations</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3">.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">Rules Based (Push) agent does its best to maintain "adequate" stocking levels. This agent tries to minimize shipping costs and it avoids back logging its supplier - as long as the supplier is attempting to maintain adequate stocks itself.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">The Rules Based (Push) Agent uses the following parameters:</FONT></P>
+<UL STYLE="margin-top:0;margin-bottom:0;margin-left=17pt;"><LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">maximum inventory depends on the position played</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">retailer = 90 (good delivery here minimizes backlogs overall)</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">wholesaler = 45 (tends to minimize propagation of backlogs)</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">distributor = 80</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">manufacturer = 80</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">restocking trigger level = 55 (order more product if SOH &lt; 55)</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">container size = 60</FONT>
+<LI><FONT FACE="Verdana" COLOR="#000080" SIZE="3">minimum order = 30 (order half a container or more)</FONT></UL>
+<P STYLE="margin-top:0;margin-bottom:0;margin-left=1pt;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;margin-left=1pt;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">This agent does better than the </FONT><A HREF="hs50.htm"><FONT FACE="Verdana" SIZE="3">Paranoid</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> and </FONT><A HREF="hs60.htm"><FONT FACE="Verdana" SIZE="3">Considerate Paranoid</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> agents on </FONT><A HREF="hs120.htm"><FONT FACE="Verdana" SIZE="3">Random</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> runs, but it is the worst of all agents on </FONT><A HREF="hs120.htm"><FONT FACE="Verdana" SIZE="3">Spiked</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> runs.</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;margin-left=1pt;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">&nbsp;</FONT></P>
+<P STYLE="margin-top:0;margin-bottom:0;"><FONT FACE="Verdana" COLOR="#000080" SIZE="3">This help document provides a qualitative </FONT><A HREF="hs130.htm"><FONT FACE="Verdana" SIZE="3">comparison</FONT></A><FONT FACE="Verdana" COLOR="#000080" SIZE="3"> of the agents' performance.
+</FONT>
+</P>
+</BODY></HTML>
